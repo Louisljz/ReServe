@@ -39,10 +39,12 @@ with tab1:
         if buffer:
             img = Image.open(buffer)
             top_pred = list(food_recognizer.recognize(img).items())[0]
-            if top_pred[1] > 0.5:
+            if top_pred[1] > 0.4:
                 if top_pred[0] not in st.session_state['food items']:
                     st.session_state['food items'].append(top_pred[0])
-                    st.success(f'{top_pred[0]} added to list!')
+                    st.success(f'{top_pred[0]} detected with conf. of {top_pred[1]}')
+                else:
+                    st.info(f'{top_pred[0]} already in list.')
             else:
                 st.error('AI cannot recognize item!')
 
