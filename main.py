@@ -4,8 +4,8 @@ from PIL import Image
 from GCPVertexAI import ChatBot
 from ClarifaiAPI import FoodRecognizer
 
-st.set_page_config('CookPal', ':cook:')
-st.title('CookPal :cook:')
+st.set_page_config('ReServe', ':cook:')
+st.title('ReServe :cook:')
 
 ROOT_DIR = os.path.dirname(__file__)
 with open(os.path.join(ROOT_DIR, 'about.txt')) as f:
@@ -47,4 +47,5 @@ with tab1:
         st.write(response)
 
 with tab2:
-    st.write(about)
+    st.markdown(about)
+    st.image('logo.png')
